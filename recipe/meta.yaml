@@ -1,4 +1,4 @@
-{% set version = '1.0-8' %}
+{% set version = '1.0-9' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -11,12 +11,13 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/BradleyTerry2_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/BradleyTerry2/BradleyTerry2_{{ version }}.tar.gz
-  sha256: 1f95e885cd68d72a06c1990e6dd6a5f9ae5e26a1cf9b5af63fbdcce27efb8625
+  sha256: 56108638cba7031d1747c802c5ecdb4c7a7840b0d39f50f73f6e1d149712d083
 
 build:
   merge_build_host: True  # [win]
   # If this is a new build for the same version, increment the build number.
   number: 0
+  noarch: generic
 
   # This is required to make R link correctly on Linux.
   rpaths:
@@ -61,6 +62,7 @@ about:
     parameters are related to explanatory variables through a linear predictor and versions
     with contest-specific effects, such as a home advantage.
   license_family: GPL3
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
@@ -71,7 +73,7 @@ extra:
 # The original CRAN metadata for this package was:
 
 # Package: BradleyTerry2
-# Version: 1.0-8
+# Version: 1.0-9
 # Title: Bradley-Terry Models
 # Authors@R: c(person("Heather", "Turner", role = c("aut", "cre"), email = "ht@heatherturner.net"), person("David", "Firth", role = "aut"))
 # URL: https://github.com/hturner/BradleyTerry2
@@ -84,13 +86,14 @@ extra:
 # License: GPL (>= 2)
 # LazyData: yes
 # Encoding: UTF-8
-# RoxygenNote: 6.0.1
+# RoxygenNote: 6.1.1
+# Language: en-GB
 # NeedsCompilation: no
-# Packaged: 2017-09-20 08:33:05 UTC; hturner
+# Packaged: 2019-02-25 14:28:56 UTC; hturner
 # Author: Heather Turner [aut, cre], David Firth [aut]
 # Maintainer: Heather Turner <ht@heatherturner.net>
 # Repository: CRAN
-# Date/Publication: 2017-09-20 09:26:09 UTC
+# Date/Publication: 2019-02-25 16:00:03 UTC
 
 # See
 # http://docs.continuum.io/conda/build.html for
